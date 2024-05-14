@@ -1,0 +1,17 @@
+.div-footer{
+    width: 100%;
+    background-color: #039eb9;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-footer{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    justify-content: center;
+    height: 100%;
+    width: 90%;
+}

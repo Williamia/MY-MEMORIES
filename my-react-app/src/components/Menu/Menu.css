@@ -13,4 +13,9 @@
     height: 100%;
     display: flex;
     align-items: center;
+    background-color: #039eb9;
+}
+
+.container-menu p{
+    background-color: #039eb9;
 }

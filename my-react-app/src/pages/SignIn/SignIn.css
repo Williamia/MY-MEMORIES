@@ -116,6 +116,7 @@ label img{
     outline: none;
     border: none;
     background-color: #039eb9;
+    margin-bottom: 2%;
 }
 
 .form button:hover{

@@ -15,4 +15,9 @@
     height: 100%;
     width: 90%;
     font-size: 13px;
+    background-color: #039eb9;
+}
+
+.container-footer p{
+    background-color: #039eb9;
 }

@@ -3,9 +3,9 @@ import Layout from "../../components/Layout/Layout"
 import userLoginIcon from '../../../public/icons8-user-30.png'
 import userPasswordIcon from '../../../public/icons8-password-30.png'
 import logo from '../../../public/icons8-photo-gallery-100.png'
-import './Home.css'
+import './SignIn.css'
 
-export default function Home() {
+export default function SignIn() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -60,6 +60,7 @@ export default function Home() {
                                 />
                             </div>
                             <button type="submit">Sign in</button>
+                            <button>Sign Up</button>
                         </form>
                     </div>
                 </div>

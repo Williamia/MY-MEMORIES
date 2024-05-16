@@ -124,3 +124,8 @@ label img{
     background-color: #01849b;
     transition: 0.5s;
 }
+
+.button-link-signup{
+    display: flex;
+    justify-content: center;
+}

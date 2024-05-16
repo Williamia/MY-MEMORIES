@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from 'react-router-dom';
 import Layout from "../../components/Layout/Layout"
 import userLoginIcon from '../../../public/icons8-user-30.png'
 import userPasswordIcon from '../../../public/icons8-password-30.png'
@@ -60,7 +61,9 @@ export default function SignIn() {
                                 />
                             </div>
                             <button type="submit">Sign in</button>
+                           <Link className="button-link-signup" to="/signup">
                             <button>Sign Up</button>
+                            </Link>
                         </form>
                     </div>
                 </div>

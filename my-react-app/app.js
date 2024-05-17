@@ -29,7 +29,7 @@ app.post('/api/login', async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: 'Credenciais inválidas.' });
     }
-    res.json({ message: 'Login bem-sucedido!', user });
+    res.json({ message: 'Login Successful!'});
   } catch (error) {
     console.error('Erro ao fazer login:', error);
     res.status(500).json({ message: 'Erro interno do servidor.' });
@@ -40,13 +40,13 @@ app.post('/api/register', async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).json({ message: 'Usuário e senha são necessários.' });
+    return res.status(400).json({ message: 'Username and password are required.' });
   }
 
   try {
     const userExists = await User.exists({ username });
     if (userExists) {
-      return res.status(409).json({ message: 'Nome de usuário já está em uso.' });
+      return res.status(409).json({ message: 'Username is already in use.' });
     }
     const newUser = await User.create({ username, password });
     res.status(201).json({ message: 'Usuário registrado com sucesso!', newUser });
@@ -88,6 +88,22 @@ app.get('/api/users', async (req, res) => {
     res.json(users);
   } catch (error) {
     console.error('Erro ao obter usuários:', error);
+    res.status(500).json({ message: 'Erro interno do servidor.' });
+  }
+});
+
+
+app.delete('/api/users/delete/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuário não encontrado.' });
+    }
+    res.json({ message: 'Usuário deletado com sucesso!' });
+  } catch (error) {
+    console.error('Erro ao deletar usuário:', error);
     res.status(500).json({ message: 'Erro interno do servidor.' });
   }
 });

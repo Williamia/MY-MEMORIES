@@ -3,21 +3,20 @@ import Layout from "../../components/Layout/Layout";
 import userLoginIcon from '../../../public/icons8-user-30.png';
 import userPasswordIcon from '../../../public/icons8-password-30.png';
 import logo from '../../../public/icons8-photo-gallery-100.png';
+import approved from '../../../public/icons8-success-48.png';
+import failed from '../../../public/icons8-cancel-48.png';
 import './SignUp.css';
 
 export default function SignUp() {
 
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
-    };
-
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
     };
 
     const handlePasswordChange = (event) => {
@@ -28,23 +27,41 @@ export default function SignUp() {
         setConfirmPassword(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Validation logic can be added here
+    
+        setError('');
+        setSuccess('');
+
+
         if (password !== confirmPassword) {
-            alert('Passwords do not match');
+            setError('Passwords do not match');
             return;
         }
 
-        console.log('Username:', username);
-        console.log('Email:', email);
-        console.log('Password:', password);
+        try {
+            const response = await fetch('http://localhost:3000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
 
-        setUsername('');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Something went wrong');
+            }
+
+            setSuccess('User registered successfully!');
+            setUsername('');
+            setPassword('');
+            setConfirmPassword('');
+        } catch (error) {
+            setError(error.message);
+        }
     };
 
     return (
@@ -58,6 +75,8 @@ export default function SignUp() {
                                 <img src={logo} alt="gallery" />
                                 <p>MY MEMORIES</p>
                             </div>
+                            {error && <div className="notice error"> <img src={failed} alt="error" /> <p>{error}</p> </div>}
+                            {success && <div className="notice success"> <img src={approved} alt="success" /> <p>{success}</p> </div>}
                             <div className="div-label username-signup">
                                 <label htmlFor="username"><img src={userLoginIcon} alt="User Login" />Username</label>
                                 <input

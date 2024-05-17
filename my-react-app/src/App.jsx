@@ -1,24 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
-import SignIn from './pages/SignIn/SignIn'
-import SignUp from './pages/SignUp/SignUp'
-import Home from './pages/Home/Home'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
 
-function App() {
-
-  return (
-    <Router>
-    <div> 
-      <Routes>
-
-        <Route path="/" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
-
-      </Routes>
-    </div>
-  </Router>
-  )
+export default function App() {
+    return (
+        <Router>
+            <AuthProvider>
+                <Routes>
+                    <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
+                    <Route path="/" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
+                </Routes>
+            </AuthProvider>
+        </Router>
+    );
 }
-
-export default App

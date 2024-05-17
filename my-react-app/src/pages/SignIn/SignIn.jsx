@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from "../../context/AuthContext";
 import Layout from "../../components/Layout/Layout";
 import userLoginIcon from '../../../public/icons8-user-30.png';
 import userPasswordIcon from '../../../public/icons8-password-30.png';
@@ -10,7 +11,8 @@ export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate(); 
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -22,8 +24,6 @@ export default function SignIn() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-      
         setError('');
 
         try {
@@ -39,8 +39,7 @@ export default function SignIn() {
 
             if (response.ok) {
                 console.log('Login successful:', data);
-         
-                navigate('/home');
+                login(data.token, navigate);
             } else {
                 setError(data.message || 'Failed to login');
             }
@@ -85,7 +84,7 @@ export default function SignIn() {
                                 />
                             </div>
                             {error && <p className="error">{error}</p>}
-                            <button type="submit">Sign in</button>
+                            <button type="submit">Sign In</button>
                             <Link className="button-link-signup" to="/signup">
                                 <button type="button">Sign Up</button>
                             </Link>

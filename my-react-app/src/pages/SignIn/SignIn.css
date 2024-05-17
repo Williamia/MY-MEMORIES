@@ -45,7 +45,6 @@
 .div-label{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
     width: 95%;
     height: 70px;
@@ -74,7 +73,7 @@
 }
 
 .form label{
-    margin-left: 30px; 
+    margin-left: 10px; 
     margin-bottom: 3px; 
     display: flex;
     align-items: center;
@@ -126,6 +125,7 @@ label img{
 }
 
 .button-link-signup{
+    width: 100%;
     display: flex;
     justify-content: center;
 }

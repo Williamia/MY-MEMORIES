@@ -10,7 +10,6 @@
 .container-footer{
     display: flex;
     align-items: center;
-    text-align: center;
     color: white;
     height: 100%;
     width: 90%;
@@ -20,4 +19,5 @@
 
 .container-footer p{
     background-color: #039eb9;
+    text-align: center;
 }

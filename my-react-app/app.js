@@ -108,7 +108,7 @@ app.get('/api/photos', verifyToken, async (req, res) => {
 
 app.get('/api/users', async (req, res) => {
   try {
-    const users = await User.find({}, '-password'); // Não incluir a senha na resposta
+    const users = await User.find({}, '-password'); 
     res.json(users);
   } catch (error) {
     console.error('Erro ao obter usuários:', error);

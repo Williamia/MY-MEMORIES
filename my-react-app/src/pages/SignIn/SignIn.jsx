@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import Layout from "../../components/Layout/Layout";
 import userLoginIcon from '../../../public/icons8-user-30.png';
 import userPasswordIcon from '../../../public/icons8-password-30.png';
-import logo from '../../../public/icons8-photo-gallery-100.png';
+import logo from '../../../public/image-logo.png';
 import './SignIn.css';
 
 export default function SignIn() {
@@ -61,7 +61,6 @@ export default function SignIn() {
                         <form className="form" onSubmit={handleSubmit}>
                             <div className="image-title-form">
                                 <img src={logo} alt="gallery" />
-                                <p>MY MEMORIES</p>
                             </div>
                             <div className="div-label username">
                                 <label htmlFor="username"><img src={userLoginIcon} alt="User Login" />Username</label>

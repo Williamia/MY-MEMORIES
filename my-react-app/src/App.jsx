@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
+import './App.css'
 
 export default function App() {
     return (

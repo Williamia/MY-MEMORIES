@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import userLoginIcon from '../../../public/icons8-user-30.png';
 import userPasswordIcon from '../../../public/icons8-password-30.png';
-import logo from '../../../public/icons8-photo-gallery-100.png';
+import logo from '../../../public/image-logo.png';
 import approved from '../../../public/icons8-success-48.png';
 import failed from '../../../public/icons8-cancel-48.png';
 import './SignUp.css';
@@ -71,9 +71,8 @@ export default function SignUp() {
                     <div className="image-homepage" />
                     <div className="signup-homepage">
                         <form className="form-signup" onSubmit={handleSubmit}>
-                            <div className="image-title-form">
+                            <div className="image-title-form signup">
                                 <img src={logo} alt="gallery" />
-                                <p>MY MEMORIES</p>
                             </div>
                             {error && <div className="notice error"> <img src={failed} alt="error" /> <p>{error}</p> </div>}
                             {success && <div className="notice success"> <img src={approved} alt="success" /> <p>{success}</p> </div>}

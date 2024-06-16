@@ -71,7 +71,7 @@ const verifyToken = (req, res, next) => {
   if (!token) {
     return res.status(403).json({ message: 'No token provided.' });
   }
-  jwt.verify(token, secretKey, (err, decoded) => {
+  jwt.verify(token.split(' ')[1], secretKey, (err, decoded) => {
     if (err) {
       return res.status(500).json({ message: 'Failed to authenticate token.' });
     }
@@ -79,6 +79,7 @@ const verifyToken = (req, res, next) => {
     next();
   });
 };
+
 
 app.post('/api/photos', verifyToken, async (req, res) => {
   const { imagem, nome, data } = req.body;
@@ -96,7 +97,7 @@ app.post('/api/photos', verifyToken, async (req, res) => {
   }
 });
 
-app.get('/api/photos', verifyToken, async (req, res) => {
+app.get('/api/viewphotos', verifyToken, async (req, res) => {
   try {
     const photos = await Photo.find();
     res.json(photos);

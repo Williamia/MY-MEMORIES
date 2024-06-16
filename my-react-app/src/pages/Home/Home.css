@@ -1,0 +1,19 @@
+.home-body{
+    display: flex;
+}
+
+.home-content-pothos{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+}
+
+.list-images{
+    display: flex;
+    width: 95%;
+    height: 95%;
+    background-color: blue;
+}

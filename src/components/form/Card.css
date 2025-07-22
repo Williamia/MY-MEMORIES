@@ -1,7 +1,19 @@
 .card-container{
     display: flex;
     align-self: center;
+    justify-content: center;
     width: 514px;
-    height: 815px;
-    background-color: red;
+    height: 750px;
+    background-color: white;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.card-image{
+    display: flex;
+    align-self: center;
+    width: 80%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10%;
 }

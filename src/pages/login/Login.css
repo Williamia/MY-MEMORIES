@@ -13,13 +13,14 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.452);; 
+    background: rgba(0, 0, 0, 0.452); 
     z-index: -1;
     pointer-events: none;
 }
 
 .inputs-position{
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .login-form{

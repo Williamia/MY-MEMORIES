@@ -28,6 +28,10 @@ function Login() {
         }
     }
 
+    function handleSignUp() {
+        navigate('/register');
+    }
+
   return (
         <Card image={logo}> 
             <form className='login-form' onSubmit={handleSubmit}>
@@ -49,7 +53,8 @@ function Login() {
                 placeholder="Enter your password" 
             />
                 </div>
-            <Button text='SIGN IN' type="submit" />   
+            <Button text='SIGN IN' type="submit" /> 
+            <Button text='SIGN UP' type="button" onClick={handleSignUp}/> 
             </form>
         </Card>
   );

@@ -14,8 +14,10 @@ body::before {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.452); 
+    backdrop-filter: blur(8px);
     z-index: -1;
     pointer-events: none;
+    
 }
 
 .inputs-position{

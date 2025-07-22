@@ -16,7 +16,7 @@ function Login() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        setError('');
+        setError(error);
 
         try {
             const response = await loginUser(email, password);
